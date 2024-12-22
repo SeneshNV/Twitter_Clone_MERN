@@ -1,0 +1,22 @@
+{
+  "name": "-twitter_clone_mern",
+  "version": "1.0.0",
+  "description": "A full-stack web application built using the MERN stack (MongoDB, Express.js, React.js, and Node.js), replicating the core features of Twitter. This project provides a platform for users to share thoughts, connect with others, and explore trending topics in real-time.",
+  "main": "backend/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon backend/server.js",
+    "start": "node backend/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
