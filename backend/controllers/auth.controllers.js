@@ -1,4 +1,6 @@
 import bcrypt from "bcryptjs";
+import { generateTokenAndSetCookie } from "../lib/utils/generateToken.js";
+import User from "../models/user.model.js";
 
 export const signup = async (req, res) => {
   try {
@@ -34,10 +36,23 @@ export const signup = async (req, res) => {
       generateTokenAndSetCookie(newUser._id, res);
       await newUser.save();
 
-      res.status(201).json({ message: "User created successfully" });
+      res.status(201).json({
+        _id: newUser._id,
+        fullname: newUser.fullname,
+        username: newUser.username,
+        email: newUser.email,
+        followers: newUser.followers,
+        following: newUser.followers,
+        profileImg: newUser.profileImg,
+        coverImg: newUser.coverImg,
+      });
     } else {
+      res.status(400).json({ error: "Invalid user data" });
     }
-  } catch (error) {}
+  } catch (error) {
+    console.log("Error in signup controller, error.message");
+    res.status(500).json({ error: "Internal server error" });
+  }
 };
 
 export const login = async (req, res) => {
