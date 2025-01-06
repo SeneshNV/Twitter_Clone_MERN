@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import authRouters from "./routes/auth.routes.js";
+import userRouters from "./routes/user.routes.js";
 import connectMongoDB from "./db/connectMongoDB.js";
 import cookieParser from "cookie-parser";
 
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use("/api/auth", authRouters);
+app.use("/api/users", userRouters);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`);
