@@ -4,10 +4,19 @@ import authRouters from "./routes/auth.routes.js";
 import userRouters from "./routes/user.routes.js";
 import connectMongoDB from "./db/connectMongoDB.js";
 import cookieParser from "cookie-parser";
+import { v2 as cloudinary } from "cloudinary";
 
 const app = express();
 
 dotenv.config();
+
+// Configuration
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET,
+});
+
 const port = process.env.PORT || 5000;
 console.log(process.env.MONGO_URI);
 
