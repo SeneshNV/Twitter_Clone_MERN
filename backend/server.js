@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import authRouters from "./routes/auth.route.js";
 import userRouters from "./routes/user.route.js";
 import postRouters from "./routes/post.route.js";
+import notificationRouters from "./routes/notification.route.js";
 import connectMongoDB from "./db/connectMongoDB.js";
 import cookieParser from "cookie-parser";
 import { v2 as cloudinary } from "cloudinary";
@@ -29,6 +30,7 @@ app.use(cookieParser());
 app.use("/api/auth", authRouters);
 app.use("/api/users", userRouters);
 app.use("/api/posts", postRouters);
+app.use("/api/notifications", notificationRouters);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`);
