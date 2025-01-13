@@ -12,6 +12,7 @@ const userSchema = new mongoose.Schema(
     coverImg: { type: String, default: "" },
     bio: { type: String, default: "" },
     link: { type: String, default: "" },
+    likedPosts: [{ type: mongoose.Schema.ObjectId, ref: "Post", default: [] }],
   },
   {
     timestamps: true,
